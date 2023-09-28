@@ -1,15 +1,15 @@
 import os
 
 print("""
-\x1b[38;2;255;20;147m╦╔═ ╔═╗ ╦═╗ ╔╦╗ ╔═╗
-\x1b[38;2;255;20;147m╠╩╗ ╠═╣ ╠╦╝ ║║║ ╠═╣
-\x1b[38;2;255;20;147m╩ ╩ ╩ ╩ ╩╚═ ╩ ╩ ╩ ╩\x1b[38;2;0;255;58m>(setup)
+\x1b[38;2;155;20;134m╦╔═ ╔═╗ ╦═╗ ╔╦╗ ╔═╗
+\x1b[38;2;155;20;147m╠╩╗ ╠═╣ ╠╦╝ ║║║ ╠═╣
+\x1b[38;2;155;20;147m╩ ╩ ╩ ╩ ╩╚═ ╩ ╩ ╩ ╩\x1b[38;2;0;500;58m <~~@Setup
 """) 
 
-print("""[0] pip\n[1] pip3\nWhich one do you use?""")
+print("""[1] pip\n[2] pip3\nChoose which one to install with.""")
 
-c = input(">>>: ")
-if c == "0":
+c = input("~|~: ")
+if c == "1":
     os.system("pip install cloudscraper")
     os.system("pip install socks")
     os.system("pip install pysocks")
@@ -17,7 +17,7 @@ if c == "0":
     os.system("pip install undetected_chromedriver")
     os.system("pip install httpx")
 
-elif c == "1":
+elif c == "2":
     os.system("pip3 install cloudscraper")
     os.system("pip3 install socks")
     os.system("pip3 install pysocks")
