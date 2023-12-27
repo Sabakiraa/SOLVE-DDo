@@ -891,7 +891,7 @@ def title():
     stdout.write("             "+Fore.MAGENTA+"╔═════════╩═════════════════════════════════╩═════════╗\n")
     stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"         Welcome to Karma-DDoS Panel         "+Fore.MAGENTA  +"       ║\n")
     stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"          Type [ ? ] to see the commands     "+Fore.MAGENTA +"       ║\n")
-    stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"         Contact - Telegram @opsector   "+Fore.MAGENTA +"            ║\n")
+    stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"         Contact - Telegram @nonefederal   "+Fore.MAGENTA +"            ║\n")
     stdout.write("             "+Fore.MAGENTA+"╚═════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
 
