@@ -810,15 +810,15 @@ def help():
     stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"credits  "+Fore.MAGENTA+"|"+Fore.CYAN+" Show credits                           "+Fore.MAGENTA+"║\n")
     stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"exit     "+Fore.MAGENTA+"|"+Fore.CYAN+" Exit KARMA DDoS Panel                  "+Fore.MAGENTA+"║\n")
     stdout.write("             "+Fore.MAGENTA            +"╠═════════════════════════════════════════════════════╣\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"Socials  "+Fore.MAGENTA+"|"+Fore.CYAN+" https://glock.rip/opsec                "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"github   "+Fore.MAGENTA+"|"+Fore.CYAN+" https://github.com/opsecs/KARMA-DDOS   "+Fore.MAGENTA+"║\n")
+    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"Socials  "+Fore.MAGENTA+"|"+Fore.CYAN+" https://glock.rip/obey                "+Fore.MAGENTA+"║\n")
+    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"github   "+Fore.MAGENTA+"|"+Fore.CYAN+" https://github.com/antifed   "+Fore.MAGENTA+"║\n")
     stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"Read     "+Fore.MAGENTA+"|"+Fore.CYAN+" Star this project or u gay ;)          "+Fore.MAGENTA+"║\n")
     stdout.write("             "+Fore.MAGENTA            +"╚═════════════════════════════════════════════════════╝\n")
     stdout.write("\n")
 
 def cMAGENTAit():
     stdout.write("\x1b[38;2;0;236;250m════════════════════════╗\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +"Developer "+Fore.MAGENTA+": \x1b[38;2;0;255;189m@opsec\n")
+    stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +"Developer "+Fore.MAGENTA+": \x1b[38;2;0;255;189m@federal\n")
     stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +" "+Fore.MAGENTA+": \x1b[38;2;0;255;189m\n")
     stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +" "+Fore.MAGENTA+": \x1b[38;2;0;255;189m\n")
     stdout.write("\x1b[38;2;0;236;250m════════════════════════╝\n")
