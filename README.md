@@ -7,7 +7,7 @@
 </div>
 
 ## Menu
-![karma](https://media.discordapp.net/attachments/1154132686642888756/1156986281692246126/image.png?ex=6516f6f1&is=6515a571&hm=bd87aabf1720ede4d0ca24ba41e7462b140fb3e0be4534ca8105b84618342fe8&=)
+![karma](https://i.imgur.com/0FA60rq.png)
 
 ## Features
 
