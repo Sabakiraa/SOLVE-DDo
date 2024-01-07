@@ -7,7 +7,7 @@
 </div>
 
 ## Menu
-![karma](https://i.imgur.com/0FA60rq.png)
+![karma](https://i.imgur.com/I5NTNGF.png)
 
 ## Features
 
