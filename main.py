@@ -883,10 +883,10 @@ def center_text(text, total_width):
     return " " * spaces + text
 
 def title():
-    stdout.write("                                                                                          \n")
-    stdout.write("                                 "+Fore.RED  +"╦╔═╔═╗╦═╗╔╦╗╔═╗                 \n")
-    stdout.write("                                 "+Fore.CYAN   +"╠╩╗╠═╣╠╦╝║║║╠═╣                 \n")
-    stdout.write("                                 "+Fore.RED   +"╩ ╩╩ ╩╩╚═╩ ╩╩ ╩                \n")
+    stdout.write("                                                           \n")
+    stdout.write("                                 "+Fore.RED┌─┐┌─┐┬ ┬  ┬┌─┐ \n")
+    stdout.write("                                "+Fore.CYAN└─┐│ ││ └┐┌┘├┤  \n")
+    stdout.write("                                 "+Fore.RED└─┘└─┘┴─┘└┘ └─┘ \n")
     stdout.write("             "+Fore.CYAN+"╔═════════════════════════════════════════════════════╗\n")
     stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"          Type [ ? ] to see the commands     "+Fore.CYAN +"       ║\n")
     stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"         Contact - Telegram @internalvpns   "+Fore.CYAN +"        ║\n")
