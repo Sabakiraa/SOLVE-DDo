@@ -9,6 +9,8 @@ from sys import stdout
 from colorama import Fore, init
 from colorama import Fore, Style
 from sys import stdout
+from colorama import init, Fore
+import sys
 
 def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
@@ -788,7 +790,7 @@ def test2(until_datetime, target, req):
             packet.close()
             pass
 
-
+init(autoreset=True)
 
 
 def clear(): 
@@ -807,21 +809,14 @@ def help():
     stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"layer7   "+Fore.CYAN+"|"+Fore.RED+" Show Layer7 Methods                    "+Fore.CYAN+"║\n")
     stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"layer4   "+Fore.CYAN+"|"+Fore.RED+" Show Layer4 Methods                    "+Fore.CYAN+"║\n")
     stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"tools    "+Fore.CYAN+"|"+Fore.RED+" Show tools                             "+Fore.CYAN+"║\n")
-    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"exit     "+Fore.CYAN+"|"+Fore.RED+" Exit KARMA DDoS Panel                  "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"exit     "+Fore.CYAN+"|"+Fore.RED+" Exit SOLVE DDoS Panel                  "+Fore.CYAN+"║\n")
     stdout.write("             "+Fore.CYAN            +"╠═════════════════════════════════════════════════════╣\n")
-    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"Socials  "+Fore.CYAN+"|"+Fore.RED+" https://glock.rip/solve               "+Fore.CYAN+"║\n")
-    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"GitHub   "+Fore.CYAN+"|"+Fore.RED+" https://github.com/internalvpn        "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"Socials  "+Fore.CYAN+"|"+Fore.RED+" https://glock.rip/solve                "+Fore.CYAN+"║\n")
+    stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"GitHub   "+Fore.CYAN+"|"+Fore.RED+" https://github.com/internalvpn         "+Fore.CYAN+"║\n")
     stdout.write("             "+Fore.CYAN            +"║ \x1b[38;2;255;20;147m• "+Fore.RED+"Read     "+Fore.CYAN+"|"+Fore.RED+" Star this project or u gay ;)          "+Fore.CYAN+"║\n")
     stdout.write("             "+Fore.CYAN            +"╚═════════════════════════════════════════════════════╝\n")
     stdout.write("\n")
 
-def cCYANit():
-    stdout.write("\x1b[38;2;0;236;250m════════════════════════╗\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +"Developer "+Fore.CYAN+": \x1b[38;2;0;255;189m@solve\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +" "+Fore.CYAN+": \x1b[38;2;0;255;189m\n")
-    stdout.write("\x1b[38;2;255;20;147m• "+Fore.RED   +" "+Fore.CYAN+": \x1b[38;2;0;255;189m\n")
-    stdout.write("\x1b[38;2;0;236;250m════════════════════════╝\n")
-    stdout.write("\n")    
 
 def layer7():
     clear()
@@ -883,20 +878,19 @@ def center_text(text, total_width):
     return " " * spaces + text
 
 def title():
-    stdout.write("                                                           \n")
-    stdout.write("                                 "+Fore.RED┌─┐┌─┐┬ ┬  ┬┌─┐ \n")
-    stdout.write("                                "+Fore.CYAN└─┐│ ││ └┐┌┘├┤  \n")
-    stdout.write("                                 "+Fore.RED└─┘└─┘┴─┘└┘ └─┘ \n")
+    stdout.write("                                 "+Fore.RED +"╔═╗╔═╗╦ ╦  ╦╔═╗     \n")
+    stdout.write("                                "+Fore.CYAN +" ╚═╗║ ║║ ╚╗╔╝║╣      \n") 
+    stdout.write("                                 "+Fore.RED +"╚═╝╚═╝╩═╝╚╝ ╚═╝     \n") 
     stdout.write("             "+Fore.CYAN+"╔═════════════════════════════════════════════════════╗\n")
-    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"          Type [ ? ] to see the commands     "+Fore.CYAN +"       ║\n")
-    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"         Contact - Telegram @internalvpns   "+Fore.CYAN +"        ║\n")
+    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"            Type [ ? ] to see the commands     "+Fore.CYAN +"     ║\n")
+    stdout.write("             "+Fore.CYAN+"║ "+Fore.RED   +"            Telegram - @internalvpns   "+Fore.CYAN +"             ║\n")
     stdout.write("             "+Fore.CYAN+"╚═════════════════════════════════════════════════════╝\n") 
     stdout.write("\n")
 
 title()
 
 def command():
-    stdout.write(Fore.CYAN+"╔═══"+Fore.CYAN+"[""root"+Fore.LIGHTCYAN_EX+"@"+Fore.CYAN+"input"+Fore.RED+"]"+Fore.CYAN+"\n╚══\x1b[38;2;0;255;189m> "+Fore.RED)
+    stdout.write(Fore.CYAN+"╔═══"+Fore.RED+"["+Fore.CYAN+"solve"+Fore.RED+"@"+Fore.CYAN+"input"+Fore.RED+"]"+Fore.CYAN+"═══════════════════════════════════════════════════════════════════════════════════════════════════════"+Fore.CYAN+"\n╚══\x1b[38;2;0;255;189m> "+Fore.RED)
     command = input()
     if command == "cls" or command == "clear":
         clear()
@@ -910,7 +904,7 @@ def command():
     elif command == "layer4" or command == "LAYER4" or command == "l4" or command == "L4" or command == "Layer4":
         layer4()
     elif command == "tools" or command == "tool":
-        tools()
+        tools()     
     elif command == "exit":
         exit()
     elif command == "test":
@@ -1075,7 +1069,7 @@ def command():
         except:
             print('An error has occurCYAN while sending the request to the API!')
     else:
-        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"Unknown command. type 'help' to see all commands.\n")  
+        stdout.write(Fore.CYAN+" [>] "+Fore.RED+"Unknown command. type '?' or 'help' to see all commands.\n")  
 ##############################################################################################   
 
 def func():
